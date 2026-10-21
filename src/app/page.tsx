@@ -168,8 +168,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── Supplements Block ────────────────────────────────── */}
-        <section id="supplements" className="bg-white border-y border-stone-100">
+        {/* ── Supplements Block — hidden until ready ───────────── */}
+        {false && <section id="supplements" className="bg-white border-y border-stone-100">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 flex flex-col sm:flex-row items-center gap-8">
             <div className="flex-1">
               <p className="text-teal-600 font-medium text-xs uppercase tracking-widest mb-2">
@@ -192,7 +192,7 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-        </section>
+        </section>}
 
         {/* ── Consultation Form ────────────────────────────────── */}
         <section id="consultation" className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
@@ -229,7 +229,6 @@ export default function HomePage() {
               <ul className="space-y-1 text-xs">
                 <li><a href={PEPTIDES_URL} className="hover:text-teal-400 transition-colors">Peptide Education</a></li>
                 <li><a href={STEMCELLS_URL} className="hover:text-teal-400 transition-colors">Stem Cell Consultations</a></li>
-                <li><a href={SUPPLEMENTS_URL} className="hover:text-teal-400 transition-colors">Supplements</a></li>
               </ul>
             </div>
             <div>
