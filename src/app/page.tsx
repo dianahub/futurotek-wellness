@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 };
 
 const PEPTIDES_URL =
-  process.env.NEXT_PUBLIC_PEPTIDES_URL ?? "https://peptides.futurotekwellness.com";
+  process.env.NEXT_PUBLIC_PEPTIDES_URL ?? "https://peptides.futurotekhealth.com";
 const STEMCELLS_URL =
-  process.env.NEXT_PUBLIC_STEMCELLS_URL ?? "https://stemcells.futurotekwellness.com";
+  process.env.NEXT_PUBLIC_STEMCELLS_URL ?? "https://stemcells.futurotekhealth.com";
 const SUPPLEMENTS_URL =
   process.env.NEXT_PUBLIC_SUPPLEMENTS_URL ?? "#supplements";
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@futurotekwellness.com";
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@futurotekhealth.com";
 
 export default function HomePage() {
   return (

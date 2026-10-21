@@ -77,10 +77,10 @@ export default function PrivacyPage() {
           <p className="text-stone-600">
             For privacy questions or data deletion requests, email:{" "}
             <a
-              href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@futurotekwellness.com"}`}
+              href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@futurotekhealth.com"}`}
               className="text-teal-700 hover:underline"
             >
-              {process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@futurotekwellness.com"}
+              {process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@futurotekhealth.com"}
             </a>
           </p>
         </section>
