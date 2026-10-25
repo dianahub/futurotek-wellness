@@ -46,7 +46,7 @@ export default async function AdminPage() {
           <table className="w-full text-sm">
             <thead className="bg-stone-50 border-b border-stone-200">
               <tr>
-                {["#", "Name", "Email", "Interest", "Date"].map((h) => (
+                {["#", "Name", "Email", "Phone", "Interest", "Source", "Message", "Date"].map((h) => (
                   <th key={h} className="px-4 py-3 text-left font-medium text-stone-600">{h}</th>
                 ))}
               </tr>
@@ -59,10 +59,17 @@ export default async function AdminPage() {
                   <td className="px-4 py-3 text-stone-600">
                     <a href={`mailto:${row.email}`} className="hover:text-teal-700">{row.email}</a>
                   </td>
+                  <td className="px-4 py-3 text-stone-600">
+                    {row.phone ? <a href={`tel:${row.phone}`} className="hover:text-teal-700">{row.phone}</a> : <span className="text-stone-300">—</span>}
+                  </td>
                   <td className="px-4 py-3">
                     <span className="bg-teal-50 text-teal-700 text-xs px-2 py-0.5 rounded-full">
                       {row.interest}
                     </span>
+                  </td>
+                  <td className="px-4 py-3 text-stone-400 text-xs">{row.source}</td>
+                  <td className="px-4 py-3 text-stone-600 text-xs max-w-xs">
+                    {row.message ? <span title={row.message}>{row.message.slice(0, 80)}{row.message.length > 80 ? "…" : ""}</span> : <span className="text-stone-300">—</span>}
                   </td>
                   <td className="px-4 py-3 text-stone-400 text-xs">
                     {row.createdAt.toLocaleDateString("en-US", {

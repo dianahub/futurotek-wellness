@@ -10,7 +10,9 @@ import { eq, and, gt } from "drizzle-orm";
 const schema = z.object({
   name: z.string().min(1, "Name is required").max(100),
   email: z.string().email("Please enter a valid email"),
+  phone: z.string().max(30).optional(),
   interest: z.enum(["Peptides", "Stem Cells", "Supplements", "Not sure"]),
+  message: z.string().max(1000).optional(),
   consent: z.string(),
   website: z.string().max(0),
 });
@@ -52,7 +54,9 @@ export async function submitLead(
   const raw = {
     name: formData.get("name"),
     email: formData.get("email"),
+    phone: formData.get("phone") || undefined,
     interest: formData.get("interest"),
+    message: formData.get("message") || undefined,
     consent: formData.get("consent"),
     website: formData.get("website") ?? "",
   };
@@ -63,7 +67,7 @@ export async function submitLead(
     return { error: first };
   }
 
-  const { name, email, interest, consent, website } = result.data;
+  const { name, email, phone, interest, message, consent, website } = result.data;
   if (website) return { error: "Submission rejected." };
   if (consent !== "on") return { error: "Please agree to the consent statement." };
 
@@ -77,7 +81,9 @@ export async function submitLead(
   await db.insert(leads).values({
     name,
     email,
+    phone: phone ?? null,
     interest,
+    message: message ?? null,
     source: "landing",
     consent: true,
   });
@@ -85,7 +91,7 @@ export async function submitLead(
   // Fire-and-forget Formspree notification for email alerts
   const formspreeUrl = process.env.FORMSPREE_URL;
   if (formspreeUrl) {
-    const body = new URLSearchParams({ name, email, interest, source: "landing" });
+    const body = new URLSearchParams({ name, email, ...(phone ? { phone } : {}), interest, ...(message ? { message } : {}), source: "landing" });
     fetch(formspreeUrl, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded", "Accept": "application/json" },

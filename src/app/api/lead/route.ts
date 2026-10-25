@@ -14,7 +14,9 @@ const ALLOWED_ORIGINS = [
 const schema = z.object({
   name: z.string().min(1).max(100),
   email: z.string().email(),
+  phone: z.string().max(30).optional(),
   interest: z.string().max(100).optional(),
+  message: z.string().max(1000).optional(),
   source: z.string().max(50).optional(),
 });
 
@@ -85,11 +87,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Too many requests." }, { status: 429, headers: cors });
     }
 
-    const { name, email, interest, source } = parsed.data;
+    const { name, email, phone, interest, message, source } = parsed.data;
     await db.insert(leads).values({
       name,
       email,
+      phone: phone ?? null,
       interest: interest ?? "Not sure",
+      message: message ?? null,
       source: source ?? "unknown",
       consent: true,
     });
@@ -99,7 +103,9 @@ export async function POST(req: NextRequest) {
       const body = new URLSearchParams({
         name,
         email,
+        ...(phone ? { phone } : {}),
         interest: interest ?? "Not sure",
+        ...(message ? { message } : {}),
         source: source ?? "unknown",
       });
       fetch(formspreeUrl, {

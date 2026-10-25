@@ -68,22 +68,50 @@ export function ConsultationForm() {
         </div>
       </div>
 
+      <div className="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label htmlFor="fw-phone" className="block text-sm font-medium text-navy mb-1">
+            Phone <span className="text-navy-soft font-normal">(optional)</span>
+          </label>
+          <input
+            id="fw-phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            className="w-full rounded border border-[rgba(20,48,77,0.2)] bg-paper px-4 py-2.5 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-navy-soft focus:border-transparent"
+          />
+        </div>
+        <div>
+          <label htmlFor="fw-interest" className="block text-sm font-medium text-navy mb-1">
+            I'm interested in <span className="text-red-500">*</span>
+          </label>
+          <select
+            id="fw-interest"
+            name="interest"
+            required
+            defaultValue=""
+            className="w-full rounded border border-[rgba(20,48,77,0.2)] bg-paper px-4 py-2.5 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-navy-soft focus:border-transparent"
+          >
+            <option value="" disabled>Select a topic…</option>
+            {INTERESTS.map((i) => (
+              <option key={i} value={i}>{i}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <div>
-        <label htmlFor="fw-interest" className="block text-sm font-medium text-navy mb-1">
-          I'm interested in <span className="text-red-500">*</span>
+        <label htmlFor="fw-message" className="block text-sm font-medium text-navy mb-1">
+          Message <span className="text-navy-soft font-normal">(optional)</span>
         </label>
-        <select
-          id="fw-interest"
-          name="interest"
-          required
-          defaultValue=""
-          className="w-full rounded border border-[rgba(20,48,77,0.2)] bg-paper px-4 py-2.5 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-navy-soft focus:border-transparent"
-        >
-          <option value="" disabled>Select a topic…</option>
-          {INTERESTS.map((i) => (
-            <option key={i} value={i}>{i}</option>
-          ))}
-        </select>
+        <textarea
+          id="fw-message"
+          name="message"
+          rows={4}
+          maxLength={1000}
+          placeholder="Any questions or context you'd like to share…"
+          className="w-full rounded border border-[rgba(20,48,77,0.2)] bg-paper px-4 py-2.5 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-navy-soft focus:border-transparent resize-y"
+        />
       </div>
 
       <div className="flex items-start gap-3">
