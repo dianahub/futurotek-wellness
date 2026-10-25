@@ -174,7 +174,8 @@ export default function HomePage() {
                 </p>
                 <a
                   href={STEMCELLS_URL}
-                  className="mt-auto inline-block text-center text-navy border border-[rgba(20,48,77,0.3)] font-medium rounded px-6 py-2.5 hover:border-navy-soft hover:-translate-y-0.5 transition-all text-sm"
+                  className="mt-auto inline-block text-center text-white font-medium rounded px-6 py-2.5 hover:brightness-110 hover:-translate-y-0.5 transition-all text-sm"
+                  style={{ background: "linear-gradient(135deg, #10263c 0%, #24507a 100%)" }}
                 >
                   Stem cell consultations →
                 </a>
