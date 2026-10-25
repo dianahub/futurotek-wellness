@@ -3,11 +3,11 @@ import Link from "next/link";
 import { ConsultationForm } from "@/components/ConsultationForm";
 
 export const metadata: Metadata = {
-  title: "Futurotek Wellness — Longevity & Regenerative Wellness Education",
+  title: "Futurotek Health — Longevity & Regenerative Wellness Education",
   description:
     "Educational information about peptide therapy, stem cell consultations, and wellness supplements. Free consultation requests available.",
   openGraph: {
-    title: "Futurotek Wellness",
+    title: "Futurotek Health",
     description:
       "Education and consultations for longevity and regenerative wellness.",
   },
@@ -35,7 +35,7 @@ export default function HomePage() {
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-6">
           <span className="font-serif font-medium text-xl tracking-tight text-white whitespace-nowrap">
-            Futurotek Wellness
+            Futurotek Health
           </span>
           <a
             href="tel:+12026400054"
@@ -108,7 +108,7 @@ export default function HomePage() {
             What we offer
           </h2>
           <p className="text-navy-soft text-center text-sm mb-10 max-w-xl mx-auto">
-            Two distinct resources under the Futurotek Wellness umbrella — each with its own
+            Two distinct resources under the Futurotek Health umbrella — each with its own
             specialists and educational focus.
           </p>
           <div className="grid sm:grid-cols-2 gap-8">
@@ -233,7 +233,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
           <div className="grid sm:grid-cols-3 gap-8 mb-8">
             <div>
-              <p className="font-serif font-medium text-navy mb-2">Futurotek Wellness</p>
+              <p className="font-serif font-medium text-navy mb-2">Futurotek Health</p>
               <p className="text-xs leading-relaxed text-navy-soft">
                 Educational information on longevity, peptide research, regenerative wellness,
                 and supplements.
@@ -275,7 +275,7 @@ export default function HomePage() {
               treatment. Always consult a licensed healthcare provider before starting any
               supplement, peptide, or wellness treatment.
             </p>
-            <p className="pt-2">© 2026 Futurotek Wellness. All rights reserved.</p>
+            <p className="pt-2">© 2026 Futurotek Health. All rights reserved.</p>
           </div>
         </div>
       </footer>

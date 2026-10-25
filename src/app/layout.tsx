@@ -14,15 +14,15 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://futurotekhealth.co
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Futurotek Wellness — Longevity & Regenerative Wellness Education",
-    template: "%s | Futurotek Wellness",
+    default: "Futurotek Health — Longevity & Regenerative Wellness Education",
+    template: "%s | Futurotek Health",
   },
   description:
     "Educational information about peptide therapy, stem cell consultations, and evidence-informed wellness supplements. Independent affiliate of The Longevity Consultants.",
   openGraph: {
     type: "website",
-    siteName: "Futurotek Wellness",
-    title: "Futurotek Wellness — Longevity & Regenerative Wellness",
+    siteName: "Futurotek Health",
+    title: "Futurotek Health — Longevity & Regenerative Wellness",
     description:
       "Educational information about peptide therapy, stem cell consultations, and wellness supplements.",
     url: BASE_URL,
