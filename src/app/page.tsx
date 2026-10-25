@@ -48,21 +48,6 @@ export default function HomePage() {
       </header>
 
       <main>
-        {/* ── Disclaimer banner (visible without scrolling) ── */}
-        <div className="bg-amber-50 border-b border-amber-200">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-2.5 flex flex-col sm:flex-row gap-1 sm:gap-4 text-xs text-stone-600">
-            <span>
-              <strong>Affiliate disclosure:</strong> I am an independent affiliate and may receive
-              compensation if you request a consultation or purchase through my links.
-            </span>
-            <span className="sm:border-l sm:border-amber-300 sm:pl-4">
-              This site is for <strong>educational purposes only</strong> and is not medical advice.
-              Talk to a licensed healthcare provider before starting any supplement, peptide, or
-              treatment.
-            </span>
-          </div>
-        </div>
-
         {/* ── Hero ────────────────────────────────────────────── */}
         <section className="bg-white border-b border-stone-100">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
@@ -203,10 +188,6 @@ export default function HomePage() {
             <p className="text-stone-500 text-sm mb-2">
               Tell us what you're interested in and a specialist will follow up with educational
               information and next steps.
-            </p>
-            <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded px-3 py-2 mb-8">
-              I am an independent affiliate. If you request a consultation through this form, I
-              may receive compensation. This is not a medical consultation.
             </p>
             <ConsultationForm />
           </div>
