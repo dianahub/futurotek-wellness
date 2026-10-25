@@ -82,5 +82,16 @@ export async function submitLead(
     consent: true,
   });
 
+  // Fire-and-forget Formspree notification for email alerts
+  const formspreeUrl = process.env.FORMSPREE_URL;
+  if (formspreeUrl) {
+    const body = new URLSearchParams({ name, email, interest, source: "landing" });
+    fetch(formspreeUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded", "Accept": "application/json" },
+      body: body.toString(),
+    }).catch(() => {/* non-critical */});
+  }
+
   return { success: true };
 }
