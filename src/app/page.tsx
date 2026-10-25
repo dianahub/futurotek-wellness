@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ConsultationForm } from "@/components/ConsultationForm";
+import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Futurotek Health — Longevity & Regenerative Wellness Education",
@@ -25,41 +26,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Header ──────────────────────────────────────────── */}
-      <header
-        className="sticky top-0 z-40"
-        style={{
-          background: "linear-gradient(115deg, #10263c 0%, #1c3f63 55%, #2b5f8c 100%)",
-          borderBottom: "1px solid rgba(207,159,63,0.5)",
-          boxShadow: "0 10px 30px -14px rgba(16,38,60,0.65)",
-        }}
-      >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-6">
-          <span className="font-serif font-medium text-xl tracking-tight text-white whitespace-nowrap">
-            Futurotek Health
-          </span>
-          <a
-            href="tel:+12026400054"
-            className="hidden lg:flex flex-col items-end text-white/80 hover:text-white transition-colors"
-          >
-            <span className="text-[11px] uppercase tracking-[0.12em] text-white/60">Referral line</span>
-            <span className="text-sm tabular-nums">+1 (202) 640-0054</span>
-          </a>
-          <nav className="flex items-center gap-5 text-sm font-medium">
-            <a href={PEPTIDES_URL} className="text-white/80 hover:text-white transition-colors whitespace-nowrap">
-              Peptides
-            </a>
-            <a href={STEMCELLS_URL} className="text-white/80 hover:text-white transition-colors whitespace-nowrap">
-              Stem Cells
-            </a>
-            <a
-              href="#consultation"
-              className="text-gold hover:text-amber-300 font-semibold transition-colors whitespace-nowrap"
-            >
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+      <Header peptidesUrl={PEPTIDES_URL} stemcellsUrl={STEMCELLS_URL} />
 
       <main>
         {/* ── Hero ────────────────────────────────────────────── */}
