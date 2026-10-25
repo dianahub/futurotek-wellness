@@ -256,11 +256,6 @@ export default function HomePage() {
                   </a>
                 </li>
                 <li><Link href="/privacy" className="text-navy-soft hover:text-navy transition-colors">Privacy Policy</Link></li>
-                <li>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-navy-soft hover:text-navy transition-colors">
-                    {CONTACT_EMAIL}
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
