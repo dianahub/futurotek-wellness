@@ -13,7 +13,7 @@ export async function sendAdminNotification(params: {
   try {
     const { Resend } = await import("resend");
     const resend = new Resend(apiKey);
-    const from = process.env.RESEND_FROM ?? "Futurotek <noreply@futurotek.com>";
+    const from = process.env.RESEND_FROM ?? "Futurotek <noreply@futurotekhealth.com>";
 
     const lines = [
       `New consultation request received.`,
