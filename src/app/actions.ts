@@ -6,6 +6,7 @@ import { leads, rateLimits } from "@/db/schema";
 import { headers } from "next/headers";
 import { createHash } from "crypto";
 import { eq, and, gt } from "drizzle-orm";
+import { sendAdminNotification } from "@/lib/email";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required").max(100),
@@ -88,16 +89,7 @@ export async function submitLead(
     consent: true,
   });
 
-  // Fire-and-forget Formspree notification for email alerts
-  const formspreeUrl = process.env.FORMSPREE_URL;
-  if (formspreeUrl) {
-    const body = new URLSearchParams({ name, email, ...(phone ? { phone } : {}), interest, ...(message ? { message } : {}), source: "landing" });
-    fetch(formspreeUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded", "Accept": "application/json" },
-      body: body.toString(),
-    }).catch(() => {/* non-critical */});
-  }
+  sendAdminNotification({ name, email, phone, interest, message, source: "landing" });
 
   return { success: true };
 }

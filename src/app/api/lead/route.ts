@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { leads, rateLimits } from "@/db/schema";
 import { createHash } from "crypto";
 import { eq, and, gt } from "drizzle-orm";
+import { sendAdminNotification } from "@/lib/email";
 
 const ALLOWED_ORIGINS = [
   "https://futurotekhealth.com",
@@ -98,22 +99,7 @@ export async function POST(req: NextRequest) {
       consent: true,
     });
 
-    const formspreeUrl = process.env.FORMSPREE_URL;
-    if (formspreeUrl) {
-      const body = new URLSearchParams({
-        name,
-        email,
-        ...(phone ? { phone } : {}),
-        interest: interest ?? "Not sure",
-        ...(message ? { message } : {}),
-        source: source ?? "unknown",
-      });
-      fetch(formspreeUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded", "Accept": "application/json" },
-        body: body.toString(),
-      }).catch(() => {/* non-critical */});
-    }
+    sendAdminNotification({ name, email, phone, interest, message, source: source ?? "unknown" });
 
     return NextResponse.json({ success: true }, { headers: cors });
   } catch (err) {
