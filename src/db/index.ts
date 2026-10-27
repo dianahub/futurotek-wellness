@@ -11,9 +11,10 @@ function getDb(): Db {
   const url = process.env.DATABASE_PUBLIC_URL;
   if (!url) throw new Error("DATABASE_PUBLIC_URL is not set");
   const client = postgres(url, {
-    max: 3,
+    max: 1,
+    prepare: false,
     connect_timeout: 10,
-    idle_timeout: 20,
+    idle_timeout: 10,
     ssl: "require",
   });
   _db = drizzle(client, { schema });
